@@ -27,6 +27,12 @@ sudo useradd -s /sbin/nologin --system -g etcd etcd
 # Set /var/lib/etcd/ directory ownership to etcd user.
 sudo chown -R etcd:etcd /var/lib/etcd/
 
+# Set environment variable for etcd cluster
+export ETCD_HOST_IP=$(ip addr show enp0s8 | grep "inet\b" | awk '{print $2}' | cut -d/ -f1)
+export ETCD_NAME=$(hostname -s)
+echo "ETCD_HOST_IP=${ETCD_HOST_IP}" >> /etc/default/environment_variable
+echo "ETCD_NAME=${ETCD_NAME}" >> /etc/default/environment_variable
+
 # Configure Systemd and start etcd service
 # Create a new systemd service file for etcd.
 cp /vagrant/etcd.service /etc/systemd/system/etcd.service
