@@ -38,8 +38,3 @@ echo "ETCD_NAME=${ETCD_NAME}" >> /etc/default/environment_variable
 cp /vagrant/etcd.service /etc/systemd/system/etcd.service
 # Reload systemd service and start etcd on Ubuntu 18,04 / Ubuntu 16,04
 sudo systemctl  daemon-reload
-sudo systemctl  start etcd.service
-# Check service status:
-sudo systemctl  status etcd.service
-# etcdctl member list
-etcdctl member list
