@@ -7,17 +7,20 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     etcd.vm.hostname = "etcd0"
     etcd.vm.network :private_network, ip: "192.168.33.200"#, virtualbox__intnet: "intnet"
     etcd.vm.provision :shell, :path => "./init.sh",:privileged   => true
+    etcd.vm.provision :shell, :path => "./install_ruby.sh", :privileged => false
   end
 
   config.vm.define :etcd1 do | etcd |
     etcd.vm.hostname = "etcd1"
     etcd.vm.network :private_network, ip: "192.168.33.201"#, virtualbox__intnet: "intnet"
     etcd.vm.provision :shell, :path => "./init.sh",:privileged   => true
+    etcd.vm.provision :shell, :path => "./install_ruby.sh", :privileged => false
   end
 
   config.vm.define :etcd2 do | etcd |
     etcd.vm.hostname = "etcd2"
     etcd.vm.network :private_network, ip: "192.168.33.202"#, virtualbox__intnet: "intnet"
     etcd.vm.provision :shell, :path => "./init.sh",:privileged   => true
+    etcd.vm.provision :shell, :path => "./install_ruby.sh", :privileged => false
   end
 end
