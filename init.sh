@@ -9,7 +9,7 @@ sudo apt-get update -y
 # Download the latest release of etcd on Ubuntu 18.04 / Ubuntu 16.04:
 sudo apt -y install wget
 export RELEASE="3.3.12"
-wget https://github.com/etcd-io/etcd/releases/download/v${RELEASE}/etcd-v${RELEASE}-linux-amd64.tar.gz
+wget -q https://github.com/etcd-io/etcd/releases/download/v${RELEASE}/etcd-v${RELEASE}-linux-amd64.tar.gz
 # Extract downloaded archive file.
 tar xvf etcd-v${RELEASE}-linux-amd64.tar.gz
 # Change to new file directory
