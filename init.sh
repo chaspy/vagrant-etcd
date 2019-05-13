@@ -38,3 +38,11 @@ echo "ETCD_NAME=${ETCD_NAME}" >> /etc/default/etcd
 cp /vagrant/etcd.service /etc/systemd/system/etcd.service
 # Reload systemd service and start etcd on Ubuntu 18,04 / Ubuntu 16,04
 sudo systemctl  daemon-reload
+
+# Install Golang
+# ref: https://github.com/golang/go/wiki/Ubuntu
+sudo add-apt-repository ppa:longsleep/golang-backports
+sudo apt-get -y update
+sudo apt-get -y install golang-go
+# Install etcd/client
+go get go.etcd.io/etcd/client
